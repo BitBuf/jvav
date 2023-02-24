@@ -9,7 +9,7 @@
  * See the LICENSE file at the root of this repository.
  */
 
-package io.bytebuf.jvav.sorts;
+package io.bytebuf.jvav.raysort;
 
 import java.util.Arrays;
 import java.util.Random;
