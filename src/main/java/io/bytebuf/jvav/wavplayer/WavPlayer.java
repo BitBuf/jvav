@@ -9,7 +9,7 @@
  * See the LICENSE file at the root of this repository.
  */
 
-package io.bytebuf.jvav.creepyaudio;
+package io.bytebuf.jvav.wavplayer;
 
 import javax.sound.sampled.*;
 import java.io.File;
@@ -18,16 +18,16 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 /**
- * Plays a .wav file all the way through using JavaFX's sound API and makes it sound creepy as hell.
+ * Plays a .wav file all the way through using JavaFX's sound API.
  *
  * @author ByteBuf
  */
-public class CreepyAudio {
+public class WavPlayer {
     private static final int BUFFER_SIZE = 4096;
 
     private File audioFile;
 
-    public CreepyAudio(String path) {
+    public WavPlayer(String path) {
         try {
             String mediaType = Files.probeContentType(Paths.get(path));
 
@@ -63,7 +63,7 @@ public class CreepyAudio {
             int bytesRead;
 
             while ((bytesRead = audioStream.read(buffer)) != -1) {
-                audioLine.write(buffer, 0, bytesRead - 1600);
+                audioLine.write(buffer, 0, bytesRead);
             }
 
             audioLine.drain();
@@ -77,6 +77,6 @@ public class CreepyAudio {
     }
 
     public static void main(String[] args) {
-        new CreepyAudio(args.length > 0 ? args[0] : "src/main/resources/xp.wav").play();
+        new WavPlayer(args.length > 0 ? args[0] : "src/main/resources/xp.wav").play();
     }
 }
