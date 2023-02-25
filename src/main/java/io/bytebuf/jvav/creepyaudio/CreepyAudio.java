@@ -63,7 +63,7 @@ public class CreepyAudio {
             int bytesRead;
 
             while ((bytesRead = audioStream.read(buffer)) != -1) {
-                audioLine.write(buffer, 0, bytesRead - 400);
+                audioLine.write(buffer, 0, bytesRead - 1600);
             }
 
             audioLine.drain();
